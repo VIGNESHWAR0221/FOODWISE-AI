@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOODWISE AI</title>
+    <link rel="stylesheet" href="css/style.css?v=sidebar-min-width-fix" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">F</div>
+          <div>
+            <div class="brand-title">FOODWISE AI</div>
+            <div class="brand-subtitle">FOOD INTELLIGENCE</div>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-group">
+            <div class="nav-label">Command</div>
+            <a href="#" class="nav-item active" data-page="dashboard">Dashboard</a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-label">Data</div>
+            <a href="#" class="nav-item" data-page="history">Historical Data</a>
+            <a href="#" class="nav-item" data-page="menu">Menu Intelligence</a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-label">AI Intelligence</div>
+            <a href="#" class="nav-item" data-page="prediction">AI Demand Intelligence</a>
+<a href="#" class="nav-item" data-page="simulator">Food Impact Simulator</a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-label">Operations</div>
+            <a href="#" class="nav-item" data-page="prep">Preparation</a>
+            <a href="#" class="nav-item" data-page="inventory">Inventory</a>
+            <a href="#" class="nav-item" data-page="monitor">Real-Time Monitoring</a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-label">Waste Intelligence</div>
+            <a href="#" class="nav-item" data-page="waste">Waste Intelligence</a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-label">Analytics</div>
+            <a href="#" class="nav-item" data-page="analytics">Analytics</a>
+            <a href="#" class="nav-item" data-page="sustainability">Sustainability</a>
+            <a href="#" class="nav-item" data-page="recommendations">AI Recommendations</a>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="status-dot"></div>
+          <div>
+            <div class="status-title">AI ENGINE ONLINE</div>
+            <div class="status-meta">Model v1.0 • Database connected</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content-area">
+        <header class="topbar">
+          <div class="topbar-title">FOODWISE AI / COMMAND CENTER</div>
+          <div class="topbar-actions">
+            <form class="search-box" id="searchForm" role="search">
+              <input id="searchInput" type="search" placeholder="Search" aria-label="Search current page" />
+              <button type="submit" aria-label="Search">Search</button>
+            </form>
+            <span id="searchStatus" class="search-status" aria-live="polite"></span>
+            <button class="icon-button" type="button" aria-label="Notifications">🔔</button>
+            <div class="status-pill"><span class="status-dot sm"></span>AI ENGINE ONLINE</div>
+            <div class="profile-pill">Admin</div>
+          </div>
+        </header>
+
+        <section id="dashboard" class="page active">
+          <div class="hero-block">
+            <div>
+              <p class="eyebrow">GOOD MORNING</p>
+              <h1>Food intelligence, in one place.</h1>
+              <p class="hero-text">Predict demand. Optimize preparation. Prevent waste.</p>
+            </div>
+            <div class="hero-aside">
+              <div class="date-pill">Tue, Sep 22</div>
+              <button class="primary-btn" type="button">Refresh AI</button>
+              <ul class="status-list">
+                <li>Data synced</li>
+                <li>Model ready</li>
+                <li>Inventory updated</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-label">Expected Demand</div>
+              <div id="mDemand" class="kpi-value">750</div>
+              <div class="kpi-foot green">↑ 4.2% vs similar day</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Recommended Preparation</div>
+              <div id="mPrep" class="kpi-value">770</div>
+              <div class="kpi-foot">+20 safety margin</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Waste Risk</div>
+              <div id="mRisk" class="kpi-value risk-value">MEDIUM</div>
+              <div class="kpi-foot amber">Estimated waste: 28 portions</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Actual Consumption</div>
+              <div id="aConsumed" class="kpi-value">720</div>
+              <div class="kpi-foot">50 remaining</div>
+            </div>
+          </div>
+          <div class="kpi-grid" style="margin-top:15px">
+
+  
+
+</div>
+
+          <div class="content-grid main-grid">
+            <div class="card forecast-card">
+              <div class="card-header-row">
+                <div>
+                  <div class="section-tag">AI DEMAND FORECAST</div>
+                  <h3>Predicted demand: <span id="forecastDemand">750</span> portions</h3>
+                </div>
+                <span class="small-chip">Random Forest</span>
+              </div>
+              <div class="forecast-stat-row">
+                <div>
+                  <div class="muted-text">Expected range</div>
+                  <strong id="forecastRange">720–790</strong>
+                </div>
+                <div>
+                  <div class="muted-text">Recommended prep</div>
+                  <strong id="forecastPrep">770</strong>
+                </div>
+              </div>
+              <div class="chart-wrap">
+                <canvas id="predChart"></canvas>
+              </div>
+              <div class="card-meta">Last update: 10:42 AM</div>
+            </div>
+
+            <div class="card action-card">
+              <div class="section-tag">TODAY'S PRIORITIES</div>
+              <h3>AI Action Center</h3>
+              <div class="action-list">
+                <button class="action-item" type="button" data-page="prep">
+                  <span class="action-icon green">✓</span>
+                  <span>
+                    <strong>Prepare</strong>
+                    <small>Prepare 770 portions</small>
+                  </span>
+                </button>
+                <button class="action-item" type="button" data-page="inventory">
+                  <span class="action-icon blue">↗</span>
+                  <span>
+                    <strong>Purchase</strong>
+                    <small>Buy required ingredients</small>
+                  </span>
+                </button>
+                <button class="action-item" type="button" data-page="monitor">
+                  <span class="action-icon amber">!</span>
+                  <span>
+                    <strong>Monitor</strong>
+                    <small>Check consumption before extra prep</small>
+                  </span>
+                </button>
+                <button class="action-item" type="button" data-page="learning">
+                  <span class="action-icon violet">◎</span>
+                  <span>
+                    <strong>Learn</strong>
+                    <small>Update model after actual consumption</small>
+                  </span>
+                </button>
+              </div>
+              <div id="recs" class="recommend-list"></div>
+              <button class="secondary-btn" type="button">VIEW RECOMMENDATIONS</button>
+            </div>
+          </div>
+
+          <div class="content-grid two-col-grid">
+            <div class="card">
+              <div class="card-header-row">
+                <div>
+                  <div class="section-tag">Inventory</div>
+                  <h3>Inventory Status</h3>
+                </div>
+              </div>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Ingredient</th>
+                    <th>Required</th>
+                    <th>Available</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="invTable">
+                  <tr><td>Rice</td><td>77 kg</td><td>65 kg</td><td><span class="status-badge red">SHORTAGE</span></td></tr>
+                  <tr><td>Dal</td><td>23 kg</td><td>25 kg</td><td><span class="status-badge green">AVAILABLE</span></td></tr>
+                  <tr><td>Curd</td><td>15 L</td><td>20 L</td><td><span class="status-badge green">AVAILABLE</span></td></tr>
+                  <tr><td>Oil</td><td>8 L</td><td>6 L</td><td><span class="status-badge red">SHORTAGE</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card live-card">
+              <div class="card-header-row">
+                <div>
+                  <div class="section-tag">LIVE CONSUMPTION</div>
+                  <h3>● LIVE CONSUMPTION</h3>
+                </div>
+              </div>
+              <div class="live-metrics">
+                <div><span class="muted-text">Prepared</span><strong id="mPrepLive">770</strong></div>
+                <div><span class="muted-text">Consumed</span><strong id="aConsumedLive">720</strong></div>
+                <div><span class="muted-text">Remaining</span><strong id="mRemaining">50</strong></div>
+              </div>
+              <div class="progress-track"><span style="width:93.5%"></span></div>
+              <div class="progress-meta">93.5% consumed</div>
+              <div class="live-footer">
+                <span>Current waste risk: <strong id="mRiskLive" class="risk-label MEDIUM">MEDIUM</strong></span>
+                <small>Updated 30 seconds ago</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-grid two-col-grid">
+            <div class="card waste-card">
+              <div class="card-header-row">
+                <div>
+                  <div class="section-tag">WASTE INTELLIGENCE</div>
+                  <h3>Waste Intelligence</h3>
+                </div>
+              </div>
+              <div class="risk-block">
+                <div>
+                  <div class="muted-text">Current risk</div>
+                  <div class="risk-pill MEDIUM">MEDIUM</div>
+                </div>
+                <div>
+                  <div class="muted-text">Estimated waste</div>
+                  <div class="big-number">28</div>
+                  <small>portions</small>
+                </div>
+              </div>
+              <ul class="risk-list">
+                <li>Over-preparation</li>
+                <li>Historical leftovers</li>
+                <li>Attendance uncertainty</li>
+                <li>Menu pattern</li>
+              </ul>
+              <div class="warn-box">Recommended action: Monitor consumption before additional preparation.</div>
+            </div>
+
+            
+          </div>
+
+ 
+
+
+          <div class="content-grid two-col-grid bottom-grid">
+            <div class="card menu-card">
+              <div class="card-header-row">
+                <div>
+                  <div class="section-tag">MENU INTELLIGENCE</div>
+                  <h3>Today's Menu Intelligence</h3>
+                </div>
+              </div>
+              <table class="data-table compact-table">
+                <thead>
+                  <tr>
+                    <th>Food Item</th>
+                    <th>Predicted</th>
+                    <th>Prep</th>
+                    <th>Waste</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Rice</td><td>750</td><td>770</td><td>LOW</td><td><span class="status-badge green">READY</span></td></tr>
+                  <tr><td>Sambar</td><td>700</td><td>720</td><td>MEDIUM</td><td><span class="status-badge amber">READY</span></td></tr>
+                  <tr><td>Curd</td><td>580</td><td>600</td><td>HIGH</td><td><span class="status-badge red">LOW STOCK</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card timeline-card">
+              <div class="card-header-row">
+                <div>
+                  <div class="section-tag">AI RECOMMENDATION ENGINE</div>
+                  <h3>Recommendation Timeline</h3>
+                </div>
+              </div>
+              <div class="timeline">
+                <div class="timeline-item"><span>09:30</span><div><strong>PREPARE</strong><small>770 portions recommended</small></div></div>
+                <div class="timeline-item"><span>09:35</span><div><strong>PURCHASE</strong><small>12 kg rice required</small></div></div>
+                <div class="timeline-item"><span>11:45</span><div><strong>MONITOR</strong><small>Consumption below expected trajectory</small></div></div>
+                <div class="timeline-item"><span>13:20</span><div><strong>WASTE ALERT</strong><small>Waste risk increased</small></div></div>
+                <div class="timeline-item"><span>14:00</span><div><strong>LEARN</strong><small>Actual consumption recorded</small></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="prediction" class="page">
+          <h2>AI Demand Intelligence</h2>
+          <div class="card">
+            <div class="form">
+              <label>Date<input id="pDate" type="date" /></label>
+              <label>Expected Attendance<input id="pAttend" type="number" value="750" /></label>
+<label>
+  Food Item
+  <select id="pFood">
+    <option>Steamed Rice</option>
+    <option>Sambar</option>
+    <option>Vegetable Curry</option>
+    <option>Curd</option>
+    <option>Moong Dal</option>
+    <option>Lemon Rice</option>
+    <option>Vegetable Biryani</option>
+    <option>Rasam</option>
+    <option>Chapati</option>
+    <option>Vegetable Kurma</option>
+    <option>Idli</option>
+    <option>Vegetable Upma</option>
+    <option>Pongal</option>
+    <option>Vegetable Poha</option>
+    <option>Vegetable Fried Rice</option>
+  </select>
+</label>              <label>Temperature<input id="pTemp" type="number" value="30" /></label>
+              <label>Rain Probability %<input id="pRain" type="number" value="20" /></label>
+              <label>Previous Consumption<input id="pPrev" type="number" value="700" /></label>
+              <label>
+  Holiday
+  <select id="pHoliday">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select>
+</label>
+
+<label>
+  Event
+  <select id="pEvent">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select>
+</label>
+
+<label>
+  Exam
+  <select id="pExam">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select>
+</label>
+            </div>
+            <br />
+            <button class="primary-btn" type="button" onclick="runPrediction()">Predict Demand</button>
+          </div>
+          <div id="predictionResult" class="three"></div>
+         
+        </section>
+
+        <section id="inventory" class="page">
+          <h2>Inventory & Purchase</h2>
+          <div class="card">
+            <div class="form">
+              <label>Ingredient<input id="invIngredient" value="Tomato" /></label>
+              <label>Available<input id="invAvailable" type="number" value="40" /></label>
+              <label>Required<input id="invRequired" type="number" value="0" /></label>
+              <label>Unit<select id="invUnit"><option value="kg">kg</option><option value="pcs">pcs</option><option value="ltr">ltr</option></select></label>
+            </div>
+            <br />
+            <button class="primary-btn" type="button" onclick="saveInventory()">Save Inventory</button>
+          </div>
+          <div class="card" style="margin-top: 16px;">
+            <table class="table"><thead><tr><th>Ingredient</th><th>Available</th><th>Required</th><th>Purchase</th></tr></thead><tbody id="invTableInventory"></tbody></table>
+          </div>
+        </section>
+
+        <section id="consumption" class="page">
+          <h2>Real-Time Consumption</h2>
+          <div class="card">
+            <div class="form">
+              <label>Date<input id="cDate" type="date" /></label>
+              <label>Food Item<input id="cFood" value="Rice" /></label>
+              <label>Prepared<input id="cPrepared" type="number" value="750" /></label>
+              <label>Consumed<input id="cConsumed" type="number" value="600" /></label>
+              <label>Remaining<input id="cRemaining" type="number" value="150" /></label>
+              <label>Wasted<input id="cWasted" type="number" value="20" /></label>
+            </div>
+            <br />
+            <button class="primary-btn" type="button" onclick="saveConsumption()">Save Consumption</button>
+          </div>
+        </section>
+
+        <section id="waste" class="page">
+          <h2>Waste Management</h2>
+          <div class="card">
+            <div class="form">
+              <label>Date<input id="wDate" type="date" /></label>
+              <label>Food Item<input id="wFood" value="Rice" /></label>
+              <label>Quantity<input id="wQty" type="number" value="20" /></label>
+              <label>Cost per Unit ₹<input id="wCost" type="number" value="50" /></label>
+              <label>Reason<select id="wReason"><option>Low attendance</option><option>Over-preparation</option><option>Menu not preferred</option><option>Event cancellation</option><option>Weather change</option><option>Other</option></select></label>
+            </div>
+            <br />
+            <button class="primary-btn" type="button" onclick="saveWaste()">Save Waste</button>
+          </div>
+        </section>
+
+        <section id="prediction-vs-actual" class="page">
+  <h2>Prediction vs Actual</h2>
+
+  <div class="kpi-grid">
+    <div class="card">
+      <div class="muted">Predicted Demand</div>
+      <div id="pvaPredicted" class="metric">—</div>
+    </div>
+
+    <div class="card">
+      <div class="muted">Actual Consumption</div>
+      <div id="pvaActual" class="metric">—</div>
+    </div>
+
+    <div class="card">
+      <div class="muted">Difference</div>
+      <div id="pvaDifference" class="metric">—</div>
+    </div>
+
+    <div class="card">
+      <div class="muted">Model Records</div>
+      <div id="pvaRecords" class="metric">—</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:15px">
+    <div class="section-tag">PREDICTION PERFORMANCE</div>
+    <h3>Prediction vs Actual</h3>
+    <p class="muted">
+      Compare AI demand predictions with recorded consumption.
+    </p>
+
+    <div style="height:320px">
+      <canvas id="predictionActualChart"></canvas>
+    </div>
+  </div>
+</section>
+        <section id="analytics" class="page">
+          <h2>Analytics</h2>
+          <div class="kpi-grid">
+            <div class="card"><div class="muted">Total Consumed</div><div id="aConsumedMetric" class="metric">—</div></div>
+            <div class="card"><div class="muted">Total Wasted</div><div id="aWasted" class="metric">—</div></div>
+            <div class="card"><div class="muted">Waste Cost</div><div id="aCost" class="metric">—</div></div>
+            <div class="card"><div class="muted">Historical Records</div><div id="aRecords" class="metric">—</div></div>
+          </div>
+          <div class="card" style="margin-top:15px"><canvas id="wasteChart"></canvas></div>
+        </section>
+
+        <section id="simulator" class="page">
+          <h2>Food Impact Simulator</h2>
+          <div class="card">
+            <div class="form">
+              <label>Expected Attendance<input id="sAttend" type="number" value="650" /></label>
+              <label>Temperature<input id="sTemp" type="number" value="30" /></label>
+              <label>Rain %<input id="sRain" type="number" value="30" /></label>
+              <label>Previous Consumption<input id="sPrev" type="number" value="700" /></label>
+              <label>
+  Holiday
+  <select id="sHoliday">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select>
+</label>
+<label>
+  Event
+  <select id="sEvent">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select>
+</label>            </div>
+            <br />
+            <button class="primary-btn" type="button" onclick="simulate()">Run Simulation</button>
+          </div>
+          <div id="simResult" class="three"></div>
+        </section>
+
+       
+
+        <section id="history" class="page">
+          <h2>Historical Data</h2>
+          <div class="card">
+            <p id="historyStatus" class="muted">Loading historical data...</p>
+            <div style="overflow-x:auto">
+              <table class="table" id="historyTable" hidden>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Day</th>
+                    <th>Expected Attendance</th>
+                    <th>Food Item</th>
+                    <th>Prepared</th>
+                    <th>Consumed</th>
+                    <th>Wasted</th>
+                    <th>Holiday</th>
+                    <th>Event</th>
+                    <th>Exam</th>
+                    <th>Temperature</th>
+                    <th>Rain Probability</th>
+                  </tr>
+                </thead>
+                <tbody id="historyTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+<section id="menu" class="page">
+  <h2>Menu Intelligence</h2>
+
+  <div class="menu-intelligence-grid">
+
+    <div class="card">
+      <div class="section-tag">MENU CATALOG</div>
+      <h3>Menu Items</h3>
+      <p class="muted">Connected menu items available for AI planning.</p>
+      <div id="menuCatalog" class="menu-catalog">
+        <div class="muted">Loading menu items...</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-tag">RECIPE INTELLIGENCE</div>
+      <h3>Recipe Composition</h3>
+      <p class="muted">Ingredient requirements calculated from the connected recipes.</p>
+      <div id="recipeIntelligence">
+        <div class="muted">Loading recipe intelligence...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <div class="section-tag">MENU OPERATIONS</div>
+    <h3>Production Readiness</h3>
+
+    <div class="metric-grid">
+      <div class="card">
+        <div class="muted">Menu Items</div>
+        <div id="menuCount" class="metric">—</div>
+      </div>
+
+      <div class="card">
+        <div class="muted">Recipe Records</div>
+        <div id="recipeCount" class="metric">—</div>
+      </div>
+
+      <div class="card">
+        <div class="muted">Ingredients Used</div>
+        <div id="ingredientCount" class="metric">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+        
+<section id="prep" class="page">
+  <h2>Preparation Planning</h2>
+
+  <div class="card">
+    <div class="section-tag">MEAL OPERATIONS</div>
+    <h3>Create Preparation Plan</h3>
+    <p class="muted">
+      Plan meals using demand predictions and track actual preparation.
+    </p>
+
+    <div class="form">
+      <label>
+        Preparation Date
+        <input id="prepDate" type="date" required />
+      </label>
+
+      <label>
+        Meal
+        <select id="prepMeal">
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch" selected>Lunch</option>
+          <option value="Dinner">Dinner</option>
+        </select>
+      </label>
+
+      <label>
+        Menu Item
+        <select id="prepFood">
+          <option value="Steamed Rice">Steamed Rice</option>
+          <option value="Sambar">Sambar</option>
+          <option value="Vegetable Curry">Vegetable Curry</option>
+          <option value="Curd">Curd</option>
+          <option value="Moong Dal">Moong Dal</option>
+          <option value="Lemon Rice">Lemon Rice</option>
+          <option value="Vegetable Biryani">Vegetable Biryani</option>
+          <option value="Rasam">Rasam</option>
+          <option value="Chapati">Chapati</option>
+          <option value="Vegetable Kurma">Vegetable Kurma</option>
+          <option value="Idli">Idli</option>
+          <option value="Pongal">Pongal</option>
+        </select>
+      </label>
+
+      <label>
+        Expected Attendance
+        <input id="prepAttendance" type="number" min="1"
+               placeholder="e.g. 750" required />
+      </label>
+
+      <label>
+        Predicted Demand (portions)
+        <input id="prepPredicted" type="number" min="0"
+               placeholder="AI-predicted demand" required />
+      </label>
+
+      <label>
+        Recommended Preparation (portions)
+        <input id="prepRecommended" type="number" min="0"
+               placeholder="AI-recommended quantity" required />
+      </label>
+
+      <label>
+        Actual Prepared (portions)
+        <input id="prepActual" type="number" min="0"
+               placeholder="Enter after cooking" />
+      </label>
+    </div>
+
+    <p class="muted">
+      Enter the prediction and recommendation from Demand AI.
+      Actual Prepared can be entered after cooking.
+    </p>
+
+    <button class="primary-btn" type="button"
+            onclick="savePreparationPlan()">
+      Save Preparation Plan
+    </button>
+
+    <div id="prepStatus" class="muted" aria-live="polite"></div>
+  </div>
+
+  <div class="card" style="margin-top: 16px;">
+    <div class="section-tag">PREPARATION HISTORY</div>
+    <h3>Saved Preparation Plans</h3>
+
+    <div style="overflow-x: auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Meal</th>
+            <th>Menu Item</th>
+            <th>Attendance</th>
+            <th>Predicted</th>
+            <th>Recommended</th>
+            <th>Actual Prepared</th>
+          </tr>
+        </thead>
+        <tbody id="prepTable">
+          <tr>
+            <td colspan="7">Preparation records will appear here.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+        
+<section id="monitor" class="page">
+  <h2>Real-Time Monitoring</h2>
+  <p class="muted">
+    Record food preparation, consumption, and waste to monitor canteen operations.
+  </p>
+
+  <!-- STAFF DATA ENTRY -->
+  <div class="card">
+    <div class="section-tag">STAFF DATA ENTRY</div>
+    <h3>Record Meal Consumption</h3>
+
+    <div class="form">
+      <label>
+        Date
+        <input id="monitorDate" type="date" required />
+      </label>
+
+      <label>
+        Meal
+        <select id="monitorMeal">
+          <option>Breakfast</option>
+          <option selected>Lunch</option>
+          <option>Dinner</option>
+        </select>
+      </label>
+
+      <label>
+        Food Item
+        <input
+          id="monitorFood"
+          type="text"
+          placeholder="e.g. Steamed Rice"
+          required
+        />
+      </label>
+
+      <label>
+        Prepared (portions)
+        <input
+          id="monitorInputPrepared"
+          type="number"
+          min="0"
+          placeholder="450"
+          required
+        />
+      </label>
+
+      <label>
+       Consumed (portions)
+        <input
+          id="monitorInputConsumed"
+          type="number"
+          min="0"
+          value="0"
+          required
+        />
+      </label>
+
+      <label>
+        Kitchen Leftovers (portions)
+        <input
+          id="monitorInputRemaining"
+          type="number"
+          min="0"
+          value="0"
+          required
+        />
+      </label>
+           <label>
+        Plate Waste (kg)
+        <input
+          id="monitorInputWasted"
+          type="number"
+          min="0"
+          step="0.01"
+          value="0"
+          required
+        />
+      </label>
+    </div>
+<p class="muted">
+  Prepared portions must equal consumed portions plus kitchen leftovers.
+  Record plate waste separately in kilograms.
+</p>
+
+    <button
+      class="primary-btn"
+      type="button"
+      onclick="saveMonitoringRecord()"
+    >
+      Save Record
+    </button>
+
+    <p id="monitorFormStatus" class="muted" aria-live="polite"></p>
+  </div>
+
+  <!-- SUMMARY METRICS -->
+  <div class="kpi-grid" style="margin-top: 16px;">
+    <div class="card">
+      <div class="muted">Prepared</div>
+      <div id="monitorPrepared" class="metric">—</div>
+      <div class="muted">Total portions</div>
+    </div>
+
+   <div class="card">
+  <div class="muted">Consumed</div>
+  <div id="monitorConsumed" class="metric">—</div>
+</div>
+
+    <div class="card">
+      <div class="muted">Kitchen Leftovers</div>
+      <div id="monitorRemaining" class="metric">—</div>
+      <div class="muted">Food not served</div>
+    </div>
+
+    <div class="card">
+      <div class="muted">Plate Waste (kg)</div>
+      <div id="monitorWasted" class="metric">—</div>
+      <div class="muted">Uneaten food collected and weighed</div>
+    </div>
+  </div>
+
+  <!-- LIVE STATUS -->
+  <div class="card" style="margin-top: 16px;">
+    <div class="card-header-row">
+      <div>
+        <div class="section-tag">LIVE STATUS</div>
+        <h3>Consumption Progress</h3>
+      </div>
+
+      <button
+        class="secondary-btn"
+        type="button"
+        onclick="loadMonitoring()"
+      >
+        Refresh
+      </button>
+    </div>
+
+    <div id="monitorAlert" class="muted">
+      Waiting for monitoring data.
+    </div>
+
+    <div class="progress-track">
+      <span id="monitorProgress" style="width: 0%;"></span>
+    </div>
+
+    <p id="monitorProgressText" class="muted">
+      No data loaded
+    </p>
+
+    <p id="monitorUpdated" class="muted">
+      Not yet updated
+    </p>
+  </div>
+
+  <!-- RECORDS TABLE -->
+  <div class="card" style="margin-top: 16px;">
+    <div class="section-tag">MEAL HISTORY</div>
+    <h3>Consumption Records</h3>
+
+    <div style="overflow-x: auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Meal</th>
+            <th>Food Item</th>
+            <th>Prepared</th>
+            <th>Consumed</th>
+            <th>Kitchen Leftovers</th>
+            <th>Plate Waste (kg)</th>
+          </tr>
+        </thead>
+
+        <tbody id="monitorTable">
+          <tr>
+            <td colspan="7">No records loaded yet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+        <section id="learning" class="page"><h2>Self-Learning</h2><div class="card"><p>Self-learning logs and model retraining can be triggered from the backend.</p></div></section>
+        <section id="sustainability" class="page">
+  <h2>Sustainability Dashboard</h2>
+
+  <p class="muted">
+  Served portions + kitchen leftovers must equal prepared portions.
+  Measure plate waste separately in kilograms (kg).
+</p>
+
+  <div class="kpi-grid">
+    <div class="card">
+      <div class="section-tag">FOOD WASTE</div>
+      <div id="susTotalWaste" class="metric">—</div>
+      <p class="muted">Total recorded waste</p>
+    </div>
+
+    <div class="card">
+      <div class="section-tag">WASTE COST</div>
+      <div id="susWasteCost" class="metric">—</div>
+      <p class="muted">Estimated cost of recorded waste</p>
+    </div>
+
+    <div class="card">
+      <div class="section-tag">FOOD UTILIZATION</div>
+      <div id="susUtilization" class="metric">—</div>
+      <p class="muted">Consumed compared with prepared</p>
+    </div>
+
+    <div class="card">
+      <div class="section-tag">WASTE RECORDS</div>
+      <div id="susWasteRecords" class="metric">—</div>
+      <p class="muted">Number of valid waste entries</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 16px;">
+    <div class="card-header-row">
+      <div>
+        <div class="section-tag">ENVIRONMENTAL INSIGHTS</div>
+        <h3>Waste Analysis</h3>
+      </div>
+
+      <button
+        class="secondary-btn"
+        type="button"
+        onclick="loadSustainability()"
+      >
+        Refresh Data
+      </button>
+    </div>
+
+    <p id="susStatus" class="muted" aria-live="polite">
+      Sustainability data has not been loaded yet.
+    </p>
+
+    <div style="overflow-x: auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Food Item</th>
+            <th>Waste Quantity</th>
+            <th>Cost per Unit</th>
+            <th>Estimated Waste Cost</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+
+        <tbody id="susWasteTable">
+          <tr>
+            <td colspan="5">
+              Waste records will appear here when available.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 16px;">
+    <div class="section-tag">SUSTAINABILITY ACTIONS</div>
+    <h3>Waste Reduction Opportunities</h3>
+
+    <ul id="susRecommendations">
+      <li>Record kitchen leftovers and plate waste separately.</li>
+      <li>Record waste quantities and their associated costs.</li>
+      <li>Compare preparation with actual consumption.</li>
+    </ul>
+  </div>
+</section>
+       
+<section id="recommendations" class="page">
+  <h2>AI Recommendations</h2>
+
+  <p class="muted">
+    Actionable recommendations based on recorded predictions,
+    inventory data, and food waste records.
+  </p>
+
+  <!-- SUMMARY METRICS -->
+  <div class="kpi-grid">
+    <div class="card">
+      <div class="section-tag">DEMAND PREDICTIONS</div>
+      <div id="recPredictionCount" class="metric">—</div>
+      <p class="muted">Available prediction records</p>
+    </div>
+
+    <div class="card">
+      <div class="section-tag">WASTE RECORDS</div>
+      <div id="recWasteAlerts" class="metric">—</div>
+      <p class="muted">Recorded waste entries to review</p>
+    </div>
+
+    <div class="card">
+      <div class="section-tag">INVENTORY</div>
+      <div id="recInventoryCount" class="metric">—</div>
+      <p class="muted">Available inventory items</p>
+    </div>
+  </div>
+
+  <!-- RECOMMENDED ACTIONS -->
+  <div class="card" style="margin-top: 16px;">
+    <div class="card-header-row">
+      <div>
+        <div class="section-tag">AI INSIGHTS</div>
+        <h3>Recommended Actions</h3>
+      </div>
+
+      <button
+        class="secondary-btn"
+        type="button"
+        onclick="loadRecommendations()"
+      >
+        Refresh Data
+      </button>
+    </div>
+
+    <p id="recStatus" class="muted" aria-live="polite">
+      Recommendation data has not been loaded yet.
+    </p>
+
+    <div id="recActionList">
+      <p class="muted">
+        Recommendations will appear when backend data is available.
+      </p>
+    </div>
+  </div>
+</section>
+
+     </main>
+    </div>
+
+
+<script src="js/api.js"></script>
+<script src="js/app.js?v=preparation-fix-1"></script>
+<script src="js/preparation.js?v=1"></script>
+</body>
+</html>

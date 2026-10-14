@@ -1,0 +1,31 @@
+﻿# Python virtual environments
+.venv/
+venv/
+backend/.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local databases and runtime data
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files and folders
+*_backup*/
+*.backup
+*.before_csv
+*.dashboard-backup
+*.before-monitoring-restore
+*.eaten-backup
+
+# Frontend dependencies and deployment files
+node_modules/
+dist/
+.vercel/

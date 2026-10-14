@@ -1,0 +1,26 @@
+﻿ingredient_id,ingredient_name,unit,cost_per_unit,currency
+ING001,Rice,kg,55,INR
+ING002,Toor Dal,kg,140,INR
+ING003,Moong Dal,kg,130,INR
+ING004,Onion,kg,35,INR
+ING005,Tomato,kg,40,INR
+ING006,Carrot,kg,45,INR
+ING007,Potato,kg,35,INR
+ING008,Curd,kg,70,INR
+ING009,Oil,litre,150,INR
+ING010,Salt,kg,25,INR
+ING011,Spices,kg,300,INR
+ING012,Green Chilli,kg,80,INR
+ING013,Ginger,kg,120,INR
+ING014,Garlic,kg,180,INR
+ING015,Coconut,kg,100,INR
+ING016,Tamarind,kg,220,INR
+ING017,Mixed Vegetables,kg,50,INR
+ING018,Wheat Flour,kg,45,INR
+ING019,Semolina,kg,55,INR
+ING020,Poha,kg,50,INR
+ING021,Lemon,kg,90,INR
+ING022,Green Peas,kg,100,INR
+ING023,Cashew,kg,800,INR
+ING024,Mustard Seeds,kg,140,INR
+ING025,Cumin Seeds,kg,250,INR

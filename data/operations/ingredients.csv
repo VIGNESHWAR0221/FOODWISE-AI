@@ -1,0 +1,26 @@
+﻿ingredient_id,ingredient_name,unit,category
+ING001,Rice,kg,Grains
+ING002,Toor Dal,kg,Pulses
+ING003,Moong Dal,kg,Pulses
+ING004,Onion,kg,Vegetables
+ING005,Tomato,kg,Vegetables
+ING006,Carrot,kg,Vegetables
+ING007,Potato,kg,Vegetables
+ING008,Curd,kg,Dairy
+ING009,Oil,litre,Staples
+ING010,Salt,kg,Staples
+ING011,Spices,kg,Staples
+ING012,Green Chilli,kg,Vegetables
+ING013,Ginger,kg,Vegetables
+ING014,Garlic,kg,Vegetables
+ING015,Coconut,kg,Fruits and Nuts
+ING016,Tamarind,kg,Staples
+ING017,Mixed Vegetables,kg,Vegetables
+ING018,Wheat Flour,kg,Grains
+ING019,Semolina,kg,Grains
+ING020,Poha,kg,Grains
+ING021,Lemon,kg,Fruits
+ING022,Green Peas,kg,Vegetables
+ING023,Cashew,kg,Fruits and Nuts
+ING024,Mustard Seeds,kg,Spices
+ING025,Cumin Seeds,kg,Spices

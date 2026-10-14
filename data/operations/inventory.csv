@@ -1,0 +1,26 @@
+﻿ingredient_id,ingredient_name,available_quantity,unit,reorder_level
+ING001,Rice,120,kg,40
+ING002,Toor Dal,35,kg,10
+ING003,Moong Dal,30,kg,10
+ING004,Onion,40,kg,12
+ING005,Tomato,35,kg,10
+ING006,Carrot,25,kg,8
+ING007,Potato,40,kg,12
+ING008,Curd,30,kg,10
+ING009,Oil,25,litre,8
+ING010,Salt,15,kg,5
+ING011,Spices,8,kg,3
+ING012,Green Chilli,8,kg,3
+ING013,Ginger,6,kg,2
+ING014,Garlic,8,kg,3
+ING015,Coconut,12,kg,4
+ING016,Tamarind,6,kg,2
+ING017,Mixed Vegetables,50,kg,15
+ING018,Wheat Flour,40,kg,12
+ING019,Semolina,25,kg,8
+ING020,Poha,25,kg,8
+ING021,Lemon,10,kg,3
+ING022,Green Peas,15,kg,5
+ING023,Cashew,6,kg,2
+ING024,Mustard Seeds,4,kg,1
+ING025,Cumin Seeds,4,kg,1

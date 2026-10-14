@@ -1,0 +1,77 @@
+﻿recipe_id,menu_item,ingredient_id,quantity_per_portion,unit
+R001,Steamed Rice,ING001,0.10,kg
+R002,Sambar,ING002,0.025,kg
+R002,Sambar,ING004,0.015,kg
+R002,Sambar,ING005,0.015,kg
+R002,Sambar,ING017,0.035,kg
+R002,Sambar,ING016,0.003,kg
+R002,Sambar,ING011,0.002,kg
+R003,Vegetable Curry,ING004,0.012,kg
+R003,Vegetable Curry,ING006,0.018,kg
+R003,Vegetable Curry,ING007,0.020,kg
+R003,Vegetable Curry,ING005,0.010,kg
+R003,Vegetable Curry,ING009,0.006,litre
+R003,Vegetable Curry,ING011,0.002,kg
+R004,Curd,ING008,0.05,kg
+R004,Curd,ING010,0.001,kg
+R005,Moong Dal,ING003,0.025,kg
+R005,Moong Dal,ING004,0.008,kg
+R005,Moong Dal,ING005,0.008,kg
+R005,Moong Dal,ING009,0.004,litre
+R005,Moong Dal,ING011,0.002,kg
+R006,Lemon Rice,ING001,0.10,kg
+R006,Lemon Rice,ING004,0.010,kg
+R006,Lemon Rice,ING009,0.005,litre
+R006,Lemon Rice,ING021,0.012,kg
+R006,Lemon Rice,ING024,0.001,kg
+R006,Lemon Rice,ING011,0.002,kg
+R007,Vegetable Biryani,ING001,0.10,kg
+R007,Vegetable Biryani,ING004,0.012,kg
+R007,Vegetable Biryani,ING006,0.015,kg
+R007,Vegetable Biryani,ING017,0.025,kg
+R007,Vegetable Biryani,ING022,0.010,kg
+R007,Vegetable Biryani,ING009,0.005,litre
+R007,Vegetable Biryani,ING011,0.003,kg
+R007,Vegetable Biryani,ING023,0.003,kg
+R008,Rasam,ING002,0.008,kg
+R008,Rasam,ING005,0.012,kg
+R008,Rasam,ING004,0.006,kg
+R008,Rasam,ING016,0.003,kg
+R008,Rasam,ING011,0.002,kg
+R009,Chapati,ING018,0.08,kg
+R009,Chapati,ING009,0.003,litre
+R009,Chapati,ING010,0.001,kg
+R010,Vegetable Kurma,ING017,0.045,kg
+R010,Vegetable Kurma,ING004,0.012,kg
+R010,Vegetable Kurma,ING005,0.010,kg
+R010,Vegetable Kurma,ING015,0.012,kg
+R010,Vegetable Kurma,ING009,0.005,litre
+R010,Vegetable Kurma,ING011,0.002,kg
+R011,Idli,ING001,0.07,kg
+R011,Idli,ING003,0.03,kg
+R011,Idli,ING010,0.001,kg
+R012,Vegetable Upma,ING019,0.08,kg
+R012,Vegetable Upma,ING004,0.012,kg
+R012,Vegetable Upma,ING006,0.010,kg
+R012,Vegetable Upma,ING012,0.003,kg
+R012,Vegetable Upma,ING024,0.001,kg
+R012,Vegetable Upma,ING009,0.004,litre
+R013,Pongal,ING001,0.06,kg
+R013,Pongal,ING003,0.04,kg
+R013,Pongal,ING009,0.004,litre
+R013,Pongal,ING023,0.003,kg
+R013,Pongal,ING025,0.001,kg
+R013,Pongal,ING011,0.002,kg
+R014,Vegetable Poha,ING020,0.08,kg
+R014,Vegetable Poha,ING004,0.012,kg
+R014,Vegetable Poha,ING022,0.010,kg
+R014,Vegetable Poha,ING012,0.003,kg
+R014,Vegetable Poha,ING024,0.001,kg
+R014,Vegetable Poha,ING009,0.004,litre
+R015,Vegetable Fried Rice,ING001,0.10,kg
+R015,Vegetable Fried Rice,ING004,0.012,kg
+R015,Vegetable Fried Rice,ING005,0.010,kg
+R015,Vegetable Fried Rice,ING006,0.010,kg
+R015,Vegetable Fried Rice,ING022,0.010,kg
+R015,Vegetable Fried Rice,ING009,0.006,litre
+R015,Vegetable Fried Rice,ING011,0.003,kg

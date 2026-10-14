@@ -1,0 +1,16 @@
+﻿menu_id,menu_name,meal_type,description
+M001,Steamed Rice,Lunch,Plain steamed rice
+M002,Sambar,Lunch,Lentil and vegetable sambar
+M003,Vegetable Curry,Lunch,Mixed vegetable curry
+M004,Curd,Lunch,Plain curd serving
+M005,Moong Dal,Lunch,Moong dal preparation
+M006,Lemon Rice,Lunch,Rice flavored with lemon and spices
+M007,Vegetable Biryani,Lunch,Vegetable rice preparation with spices
+M008,Rasam,Lunch,South Indian spiced lentil soup
+M009,Chapati,Dinner,Whole wheat flatbread
+M010,Vegetable Kurma,Dinner,Mixed vegetable gravy
+M011,Idli,Breakfast,Steamed rice and lentil cakes
+M012,Vegetable Upma,Breakfast,Semolina cooked with vegetables
+M013,Pongal,Breakfast,Rice and moong dal preparation
+M014,Vegetable Poha,Breakfast,Flattened rice with vegetables
+M015,Vegetable Fried Rice,Dinner,Rice stir-fried with vegetables
