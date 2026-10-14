@@ -1,8 +1,12 @@
 
 const API_URL = "https://foodwise-ai1-backend.onrender.com";
 async function api(path, options = {}) {
-    const response = await fetch(`${API_URL}${path}`, {
-        ...options,
+const apiPath = path.startsWith("/api/") || path === "/api"
+    ? path
+    : `/api${path.startsWith("/") ? path : "/" + path}`;
+
+const response = await fetch(`${API_URL}${apiPath}`, {
+    ...options,
         headers: {
             "Content-Type": "application/json",
             ...(options.headers || {})
