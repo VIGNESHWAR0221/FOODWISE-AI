@@ -9,7 +9,10 @@ app = FastAPI(title="FOODWISE AI API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://foodwise-ai-frontend.vercel.app/"],
+    allow_origins=[
+        "https://foodwise-ai-frontend-3odxm6qgo-hexaminds2.vercel.app",
+        "https://foodwise-ai-frontend-git-main-hexaminds2.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
