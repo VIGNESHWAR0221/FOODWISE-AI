@@ -1,6 +1,5 @@
 
-const API = "http://127.0.0.1:8000/api";
-
+const API_URL = "https://foodwise-ai-backend.onrender.com";
 async function api(path, options = {}) {
     const response = await fetch(`${API}${path}`, {
         ...options,
