@@ -1,5 +1,5 @@
 
-const API_URL = "https://foodwise-ai-backend.onrender.com";
+const API_URL = "https://foodwise-ai1-backend.onrender.com";
 async function api(path, options = {}) {
     const response = await fetch(`${API_URL}${path}`, {
         ...options,
